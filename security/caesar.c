@@ -28,7 +28,7 @@ int main(int argc, char *argv[] ){
             c=((c-'a'+key)%26+'a');
         }
         else if('A'<=c && c<='Z'){
-            c=((c='A'+key)%26+'A');
+            c=((c-'A'+key)%26+'A');
         }
         lseek(fd,-1,SEEK_CUR);
         write(fd,&c,1);
