@@ -1,5 +1,7 @@
+
 #include <stdio.h>
 #include <math.h>
+#include <windows.h>
 #define e 2.71828
 #define hcount 40
 #define inputbias 1
@@ -33,7 +35,7 @@ int main(){
     double deltaK[10];
     double deltaJ[hcount];
     double wCT[hcount][10];
-    float a=6;
+    float a=4;
     int targetnumber=9;
     int count=0;
     double sum=0;
@@ -95,7 +97,7 @@ int main(){
         for(i=0;i<15;i++){
             for(j=0;j<15;j++){
                 for(s=0;s<hcount;s++){
-                    v[i][j][s]=1.1;
+                    v[i][j][s]=0.8;
                 }
 
 
@@ -104,7 +106,7 @@ int main(){
         }
         for(i=0;i<hcount;i++){
             for(j=0;j<10;j++){
-                w[i][j]=0.1;
+                w[i][j]=0.8;
             }
         }
         while(s<hcount){
@@ -198,10 +200,10 @@ int main(){
     for(i=0;i<15;i++){
         for(j=0;j<15;j++){
             if(inputlayer[i][j]==0){
-                printf("â–  ");
+                printf("¡á ");
             }
             else{
-                printf("â–¡ ");
+                printf("¡à ");
             }
         }
         printf("\n");
@@ -240,13 +242,14 @@ int main(){
 
 
 
-    printf("í•™ìŠµëœ ê°’:%d\n",(result1+result2)/2);
+    printf("ÇĞ½ÀµÈ °ª:%d\n",(result1+result2)/2);
 
     
 
 
 
 
-
+	system("pause");
     return 0;
 }
+
