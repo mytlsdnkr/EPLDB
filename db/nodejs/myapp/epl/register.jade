@@ -1,0 +1,117 @@
+doctype html
+html
+    head
+     meta(charset="utf-8")
+     title 회원가입
+     a(href='/') 
+        img(src="logo.png" height="50px" weight="50px")
+     script(type='text/javascript' src="http://code.jquery.com/jquery-1.10.2.js")
+     script.
+            function register(){
+
+                var id = $(".id").val();
+
+                var password = $(".password").val();
+
+                var nickname = $(".nickname").val();
+
+
+
+                
+
+                if(!id){
+
+                    alert('id를 입력하세요');
+
+                }  
+
+                if(!password){
+
+                    alert('password를 입력하세요');
+
+                }  
+
+                if(!nickname){
+
+                    alert('nickname을 입력하세요');
+
+                }  
+
+                if(id&&password&&nickname){
+
+                        document.getElementById('registerForm').submit();
+
+                }
+
+
+
+
+
+
+            };
+
+
+            function openidCheck(){
+                    window.name='register';
+                    window.open('/idcheck','idcheck','width=600,height=600');
+                };
+    body
+
+        div(class = "container" style="margin:auto;")
+
+            div(class = "row" style="margin:auto;")
+
+                div(class = "page-header" style="margin:auto;")
+
+                    h2 &nbsp; EPL DB
+
+                div(class = "col-md-3")
+
+                    form(action = "/register" method="post")
+
+                        p   
+
+                            label(for="id") ID
+
+                            
+
+                            input(type='text' id = 'id' name = 'id' class='id' placeholder='ID' value=id)
+
+                            button(onclick= 'openidCheck()') 중복확인
+                            
+                            legend
+
+
+                        p   
+
+                            label(for="password") PASSWORD
+
+                            
+
+                            input(type='password' name = 'password' placeholder='PASSWORD' class='password')
+
+                            legend
+
+
+                        p
+
+                            label(for="nickname") 닉네임
+
+                            
+
+                            input(type='text' name = 'nickname' placeholder='NICKNAME' class='nickname')
+                            
+                            legend
+
+
+                           p 
+
+                            button(onclick='register()') submit
+    
+
+                            button(type="button" onclick="location.href='/'") 홈으로 
+                            
+                            legend
+
+
+

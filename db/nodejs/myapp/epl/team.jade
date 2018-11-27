@@ -1,0 +1,62 @@
+doctype html
+html
+    head
+        meta(charset="utf-8")
+
+    script(type='text/javascript' src="http://code.jquery.com/jquery-1.10.2.js")
+    table(style="width:10%; border:1px solid #444444; float:right; ")
+        tr
+            td
+              font(style="font-size:0.5em")
+                =sess.nickname
+                =space
+                님안녕하세요!
+                
+                p
+                
+                좋아하는팀:
+                
+                =sess.favteam_no
+                p
+                좋아하는선수:
+                
+                =sess.favplayer_no
+                p
+                댓글수
+               
+                =sess.desc_no
+                p
+                form(action='/logout') 
+                    input(type='submit' id='logout' value='LOGOUT' style="height:30px; width:70px;")
+                
+
+    
+    body
+        img(width="200px" height="200px" style="display:block; margin-left:auto; margin-right:auto;" src="/logo.png") 
+        
+    div(style="text-align:center;")
+        - var i=0 
+         while i<20
+          - if(i%5==0)
+                br
+            table(style="width:50%;text-align:center; display:inline; ")
+                tr
+                    td(style="width:100%; border: 3px solid #444444;")
+
+                        a(href='/team/#{i+1}')
+                            img(width="100px" height="100px" style="margin:10px; padding:10px;" src="/teamlogo/#{i+1}.png")
+
+                       
+            -i++
+
+
+
+
+
+    
+
+
+
+
+
+           

@@ -1,12 +1,10 @@
-
 #include <stdio.h>
 #include <math.h>
-#include <windows.h>
 #define e 2.71828
 #define hcount 40
 #define inputbias 1
 #define hbias 1
-#define tNum 1000000
+#define tNum 10000
 
 
 
@@ -35,7 +33,7 @@ int main(){
     double deltaK[10];
     double deltaJ[hcount];
     double wCT[hcount][10];
-    float a=4;
+    float a=5;
     int targetnumber=9;
     int count=0;
     double sum=0;
@@ -97,7 +95,7 @@ int main(){
         for(i=0;i<15;i++){
             for(j=0;j<15;j++){
                 for(s=0;s<hcount;s++){
-                    v[i][j][s]=0.8;
+                    v[i][j][s]=9.2;
                 }
 
 
@@ -106,7 +104,7 @@ int main(){
         }
         for(i=0;i<hcount;i++){
             for(j=0;j<10;j++){
-                w[i][j]=0.8;
+                w[i][j]=9.1;
             }
         }
         while(s<hcount){
@@ -114,8 +112,6 @@ int main(){
             for(i=0;i<15;i++){
                 for(j=0;j<15;j++){
                        sum+= inputlayer[i][j]*v[i][j][s];
-                    
-
                 }   
             
             }
@@ -159,11 +155,8 @@ int main(){
         }
 
         for(i=0;i<hcount;i++){
-            deltaJ[i]=deltainJ[i][0]*w[i][0]+deltainJ[i][1]*w[i][1]+deltainJ[i][2]*w[i][2]+deltainJ[i][3]*w[i][3]+deltainJ[i][4]*w[i][4]+deltainJ[i][5]*w[i][5]+deltainJ[i][6]*w[i][6]+deltainJ[i][7]*w[i][7]+deltainJ[i][8]*w[i][8]+deltainJ[i][9]*w[i][9];
-/*            for(j=0;j<10;j++){
-                deltaJ[i]+=delta_inj[i][j]*w[i][j];
-            }*/
-
+            for(j=0;j<10;j++)
+            deltaJ[i]=deltainJ[i][j]*dersigmoid(hinj[i]);
         }
 
         for(i=0;i<15;i++){
@@ -190,6 +183,12 @@ int main(){
         }
 
 
+
+
+
+        
+
+
         count++;
         
 
@@ -200,10 +199,10 @@ int main(){
     for(i=0;i<15;i++){
         for(j=0;j<15;j++){
             if(inputlayer[i][j]==0){
-                printf("¡á ");
+                printf("â–  ");
             }
             else{
-                printf("¡à ");
+                printf("â–¡ ");
             }
         }
         printf("\n");
@@ -218,6 +217,7 @@ int main(){
             sum+=w[i][j];
         }
     }
+    //w[i][j]ì˜ í‰ê·  ê°’
 
     sum=sum/400;
 
@@ -235,21 +235,23 @@ int main(){
         }
     }
 
+    //v[i][j][k]ì˜ í‰ê· ê°’
+
     
-    sum=sum/400;
+    sum=sum/9000;
 
     result2=sum;
 
 
 
-    printf("ÇĞ½ÀµÈ °ª:%d\n",(result1+result2)/2);
+    printf("í•™ìŠµëœ ê°’:%d\n",(result1+result2)/2);
 
     
 
 
 
 
-	system("pause");
+
     return 0;
 }
 

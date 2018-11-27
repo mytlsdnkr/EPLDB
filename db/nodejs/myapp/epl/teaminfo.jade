@@ -1,0 +1,156 @@
+doctype html
+html
+    head
+    title
+     팀정보
+    meta(charset="utf-8")
+    a(href='/team')
+        img(width="100px" height="100px" src="/logo.png") 
+
+    script(type='text/javascript' src="http://code.jquery.com/jquery-1.10.2.js")
+    table(style="width:10%; border:1px solid #444444; float:right; ")
+            tr
+                td
+                  font(style="font-size:0.5em;")
+                    =sess.nickname
+                    님안녕하세요!
+                    p
+                    좋아하는팀:
+                    =sess.favteam_no
+                    p    
+
+                
+                    좋아하는선수:
+                    =sess.favplayer_no
+                
+                    p
+                    댓글수:
+                    =sess.desc_no
+                    br
+                    p
+                    form(action='/logout') 
+                       input(type='submit' id='logout' value='LOGOUT' style="height:30px; width:70px;")
+   
+   div(style="width:35%; margin:auto; text-align:center;")
+    font(style="font-size:2.5em;") 
+         =teaminfo.team_name_en
+   p
+   
+   br
+   
+         
+
+   body
+   
+            table(style="width:60%; margin:auto; border: 1px solid #444444; text-align:center;")
+
+                    tr
+                        td(style="text-align:center;" colspan="2" )
+                            img(width="200px" height="200px" src="/teamlogo/#{i}.png") 
+                    tr
+                        td(bgcolor="red" colspan="2")
+                            font(size="3em" color="yellow" style="font-weight:bold;")
+                                =teaminfo.team_name_kr
+                    tr  
+                        td(bgcolor="black" colspan="2")
+                            font(size="3em" color="white" style="font-weight:bold;")
+                                =teaminfo.team_name_en
+                    tr
+                        td(bgcolor="red" style="border-bottom:1px solid #d6d6d6;")
+                            font(size="1em" color="yellow" style="font-weight:bold;") 감독
+                                   
+                        td(style="border-bottom:1px solid #d6d6d6;")
+                            font(size="1em")
+                                  =teaminfo.manager_en
+                                  
+
+                    tr
+                        td(bgcolor="red")
+                            font(size="1em" color="yellow" style="font-weight:bold;") 감독(한글)
+                                 
+                        td(style="border-bottom:1px solid #d6d6d6;")
+                            font(size="1em")
+                                =teaminfo.manager_kr
+                            
+                    tr
+                        td(bgcolor="red")
+                            font(size="1em" color="yellow" style="font-weight:bold;") 경기장
+                                 
+                        td(style="border-bottom:1px solid #d6d6d6;")
+                            font(size="1em")
+                                =teaminfo.stadium
+
+                    tr
+                        td(bgcolor="red")
+                            font(size="1em" color="yellow" style="font-weight:bold;") 우승횟수
+                                
+                        td(style="border-bottom:1px solid #d6d6d6;")
+                            font(size="1em")
+                               =teaminfo.win_no
+                                
+                    tr
+                        td(bgcolor="red")
+                            font(size="1em" color="yellow" style="font-weight:bold;") 좋아요
+                                
+                        td(style="border-bottom:1px solid #d6d6d6;")
+                            font(size="1em")
+                               =teaminfo.like_no
+
+                              
+           
+            
+            
+            h1(align="center") Rosters
+                   
+
+           
+            - var k=0
+
+            while k<length
+
+                table(width="20%" style="display:inline;" )
+
+                    tr
+                        td
+                            a(href='/#{i}/player/#{k+1}')
+                                img(width="120px" height="120px" style="border: 2px solid #444444;"  src="/team/#{i}/#{k+1}.png")
+                       
+                                -k++
+          p
+          form(action='/team/#{i}' method='post' style="text-align:center;") 
+          
+
+              input(type='submit' id='like' value='좋아요' style="height:30px; width:70px;")
+          p
+
+           form(action='/team/#{i}' method="post")
+            table(style="border: 1px solid #444444; width:30%; margin: auto; text-align:center;")
+
+                tr
+                    td(style="border:1px solid #444444; width:10%;")
+                        h6
+                            =sess.nickname
+                    td(style="border:1px solid #444444; ")
+                        textarea(rows="4" cols="35" id='reply' name='reply' style="resize:none; font-size:1em;")
+                    td(style="border:1px solid #444444; witdth:100%;")
+                        input(type='submit' id='replysubmit' value='댓글 달기' style="height:30px; width:70px;")
+          p
+          
+
+          - var j=0
+          while j<resultlen
+
+                    tr
+                        td
+                            div
+                                =descriptioninfo[j].nickname
+                        td
+                            div
+                                =descriptioninfo[j].description
+
+                        td
+                            div
+                                =descriptioninfo[j].time
+                                -j++
+                                
+                                     

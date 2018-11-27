@@ -1,0 +1,144 @@
+
+doctype html
+html
+    head
+    title
+     =name_kr
+        meta(charset="utf-8")
+    a(href='/team')
+        img(width="150px" height="150px" src="/logo.png") 
+            
+         
+    script(type='text/javascript' src="http://code.jquery.com/jquery-1.10.2.js")
+    table(style="width:10%; border:1px solid #444444; float:right; ")
+            tr
+                td
+                  font(style="font-size:0.5em;")
+                    =sess.nickname
+                    =space
+                    님 안녕하세요!
+                    p
+                    좋아하는 팀:
+                    =sess.favteam_no
+                    p    
+
+                
+                    좋아하는 선수:
+                    =sess.favplayer_no
+                
+                    p
+                    댓글 수:
+                    =sess.desc_no
+                    br
+                    p
+                    form(action='/logout') 
+                        input(type='submit' id='logout' value='LOGOUT' style="height:40px; font-size:1.6em;")
+   div(style="width:35%; margin:auto; text-align:center;")
+    font(style="font-size:1.8em;") 
+         =playerinfo[0].name_kr
+   p
+   
+   br
+
+   body
+   
+            table(style="width:30%; margin:auto; border: 1px solid #444444; text-align:center;" cellspacing="0" )
+
+                    tr
+                        td(style="text-align:center; border-bottom:1px solid #d6d6d6" colspan="2" )
+                            img(width="300px" height="300px" src="/team/#{team_no}/#{i}.png") 
+                    tr
+                        td(bgcolor="red" colspan="2" style="border-bottom:1px solid #d6d6d6;")
+                            font(size="3em" color="yellow" style="font-weight:bold;")
+                                =team_name_kr
+                    tr                        
+                        td(bgcolor="black" colspan="2" style="border-bottom:1px solid #d6d6d6;")
+                            font(size="3em" color="white" style="font-weight:bold;")
+                                =playerinfo[0].name_en
+
+                    tr
+                        td(bgcolor="red" style="border-bottom:1px solid #d6d6d6;")                     
+                            font(size="1em" color="yellow" style="font-weight:bold;") 생년월일
+                                   
+                        td(style="border-bottom:1px solid #d6d6d6;")
+                            font(size="1em" )
+                                  =playerinfo[0].birthday
+                                  
+
+                    tr
+                        td(bgcolor="red" style="border-bottom:1px solid #d6d6d6;")
+                            font(size="1em" color="yellow" style="font-weight:bold;") 국적
+                                 
+                        td(style="border-bottom:1px solid #d6d6d6;")
+                            font(size="1em" )
+                                =playerinfo[0].country
+                            
+                    tr
+                        td(bgcolor="red" style="border-bottom:1px solid #d6d6d6;")
+                            font(size="1em" color="yellow" style="font-weight:bold;") 키
+                                 
+                        td(style="border-bottom:1px solid #d6d6d6;")
+                            font(size="1em")
+                                =playerinfo[0].height
+
+                    tr
+                        td(bgcolor="red" style="border-bottom:1px solid #d6d6d6;")
+                            font(size="1em" color="yellow" style="font-weight:bold;") 몸무게
+                                
+                        td( style="border-bottom:1px solid #d6d6d6;")
+                            font(size="1em")
+                               =playerinfo[0].weight
+                                
+                    tr
+                        td(bgcolor="red" style="border-bottom:1px solid #d6d6d6;")
+                            font(size="1em" color="yellow" style="font-weight:bold;") 포지션
+                                
+                        td( style="border-bottom:1px solid #d6d6d6;")
+                            font(size="1em")
+                               =playerinfo[0].position                              
+
+                    tr
+                        td(bgcolor="red" style="border-bottom:1px solid #d6d6d6;")
+                            font(size="1em" color="yellow" style="font-weight:bold;") 좋아요
+                                
+                        td( style="border-bottom:1px solid #d6d6d6;")
+                            font(size="1em")
+                               =playerinfo[0].like_no       
+          p
+
+          form(action='/#{team_no}/player/#{i}' method='post' style="text-align:center;") 
+          
+
+              input(type='submit' id='like' value='좋아요' style="height:30px; width:70px;")
+          
+              p
+
+           form(action='/#{team_no}/player/#{i}' method="post")
+            table(style="border: 1px solid #444444; width:30%; margin: auto; text-align:center;")
+
+                tr
+                    td(style="border:1px solid #444444; width:10%;")
+                        h6
+                            =sess.nickname
+                    td(style="border:1px solid #444444; ")
+                        textarea(rows="4" cols="35" id='reply' name='reply' style="resize:none; font-size:1em;")
+                    td(style="border:1px solid #444444; witdth:100%;")
+                        input(type='submit' id='replysubmit' value='댓글 달기' style="height:30px; width:70px;")
+          p
+          
+
+          - var j=0
+          while j<resultlen
+
+                    tr
+                        td
+                            div
+                                =descinfo[j].nickname
+                        td
+                            div
+                                =descinfo[j].description
+
+                        td
+                            div
+                                =descinfo[j].time
+                                -j++

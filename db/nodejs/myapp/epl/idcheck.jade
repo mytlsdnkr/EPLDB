@@ -1,0 +1,26 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        script(type='text/javascript' src="https://code.jquery.com/jquery-3.2.1.min.js")
+        script.
+            function idcheck_1(){
+                var id=$('.id').val();
+                document.getElementByid('idcheck').submit();
+                }
+            function setRegisterForm(){
+                opener.document.getElementById('id').value=document.getElementById('id').value;
+                window.open("",'_self').close();
+                }
+
+    body
+        form(action='idcheck' method='post' id='idcheck')
+            p
+                input(type="text" id='id' class='id' name='id' placeholder="사용할 아이디를 입력하세요" value=id)
+                button(onclick='idcheck_1()') 중복확인
+                - if(isOk==0){
+                    button(type="button" onclick='setRegisterForm()') 사용하기
+                -}
+            p
+
+            =msg

@@ -1,0 +1,18 @@
+﻿insert into player(team_no,back_no,country,position,name_kr,name_en,birthday,height,weight) values(10,2,"아일랜드","DF","맷 도허티","Matt Doherty","1992년 1월 16일",183,89);
+insert into player(team_no,back_no,country,position,name_kr,name_en,birthday,height,weight) values(10,5,"잉글랜드","DF","라이언 베넷","Ryan Bennett","1990년 3월 6일",181,78);
+insert into player(team_no,back_no,country,position,name_kr,name_en,birthday,height,weight) values(10,6,"잉글랜드","DF","대니 배스","Danny Batth","1990년 9월 21일",190,85);
+insert into player(team_no,back_no,country,position,name_kr,name_en,birthday,height,weight) values(10,7,"포르투갈","FW","이방 카발레이루","Ivan Cavaleiro","1993년 10월 18일",175,76);
+insert into player(team_no,back_no,country,position,name_kr,name_en,birthday,height,weight) values(10,8,"포르투갈","MF","후벵 네베스","Ruben Neves","1997년 3월 13일",180,80);
+insert into player(team_no,back_no,country,position,name_kr,name_en,birthday,height,weight) values(10,9,"멕시코","FW","라울 히메네스","Raul Jimenez","1991년 5월 5일",187,81);
+insert into player(team_no,back_no,country,position,name_kr,name_en,birthday,height,weight) values(10,10,"포르투갈","FW","엘데르 코스타","Helder Costa","1994년 1월 12일",178,73);
+insert into player(team_no,back_no,country,position,name_kr,name_en,birthday,height,weight) values(10,11,"포르투갈","GK","루이 파트리시우","Rui Patricio","1988년 2월 15일",190,84);
+insert into player(team_no,back_no,country,position,name_kr,name_en,birthday,height,weight) values(10,16,"잉글랜드","DF","코너 코디","Conor Coady","1993년 2월 25일",185,75);
+insert into player(team_no,back_no,country,position,name_kr,name_en,birthday,height,weight) values(10,17,"잉글랜드","MF","모건 깁스화이트","Morgan Gibbs-White","2000년 1월 27일",180,78);
+insert into player(team_no,back_no,country,position,name_kr,name_en,birthday,height,weight) values(10,18,"포르투갈","MF","디오구 조타","Diogo Jota","1996년 12월 4일",178,73);
+insert into player(team_no,back_no,country,position,name_kr,name_en,birthday,height,weight) values(10,19,"스페인","DF","조니 카스트로","Jonny Castro Otto","1994년 3월 3일",170,71);
+insert into player(team_no,back_no,country,position,name_kr,name_en,birthday,height,weight) values(10,21,"잉글랜드","GK","존 루디","John Ruddy","1986년 10월 24일",193,96);
+insert into player(team_no,back_no,country,position,name_kr,name_en,birthday,height,weight) values(10,27,"모로코","MF","로맹 사이스","Romian Saiss","1990년 3월 26일",188,84);
+insert into player(team_no,back_no,country,position,name_kr,name_en,birthday,height,weight) values(10,28,"포르투갈","MF","주앙 모티뉴","Joao Moutinho","1986년 9월 8일",182,70);
+insert into player(team_no,back_no,country,position,name_kr,name_en,birthday,height,weight) values(10,30,"잉글랜드","DF","코트니 하우스","Kortney Hause","1995년 7월 16일",191,93);
+insert into player(team_no,back_no,country,position,name_kr,name_en,birthday,height,weight) values(10,31,"잉글랜드","GK","윌 노리스","Will Norris","1993년 8월 12일",191,81);
+insert into player(team_no,back_no,country,position,name_kr,name_en,birthday,height,weight) values(10,37,"스페인","FW","아다마 트라오레","Adama Traore","1996년 1월 25일",178,72);
