@@ -8,6 +8,48 @@
 #define numberOfCity 9
 #define numberOfchild 2
 #define tNUM 100
+
+void createChild(int p1[],int p2[],int c1[],int c2[]){
+    srand(time(NULL));
+    int i=0;
+    int ctemp1[cutpoint2-cutpoint1+1];
+    int ctemp2[cutpoint2-cutpoint1+1];
+    int flag=0;
+
+    int randtemp1[cutpoint2-cutpoint1+1];
+    int randtemp2[cutpoint2-cutpoint1+1];
+
+    for(i=cutpoint1+1;i<cutpoint2+1;i++){
+        c1[i]=p2[i];
+        c2[i]=p1[i];
+    }
+    for(i=0;i<cutpoint1;i++){
+       ctemp1[i]=p1[i];
+       ctemp2[i]=p2[i];
+
+        
+    }
+
+    for(i=cutpoint2+1;i<numberOfCity;i++){
+        ctemp1[i]=p1[i];
+        ctemp2[i]=p2[i];
+    }
+
+    for(i=0;i<(cutpoint2-cutpoint1+1);i++){
+
+
+        while(1){
+
+            randtemp1[i]= rand()%(cutpoint2-cutpoint1+1);
+            flag=0;
+
+        }
+    }
+
+
+    
+    
+}
 void childmincost(int set[][numberOfCity]){
     int i,j;
     int sum[numberOfchild];
@@ -32,8 +74,8 @@ void childmincost(int set[][numberOfCity]){
 int main(){
     srand(time(NULL));
     int flag;
-    int c1[numberOfchild];
-    int c2[numberOfchild];
+    int c1[numberOfCity];
+    int c2[numberOfCity];
     int c1index,c2index;
     int p1[numberOfCity];
     int p2[numberOfCity];
@@ -127,6 +169,9 @@ int main(){
 
 
     while(s<tNUM){
+
+
+
 
     }
 
