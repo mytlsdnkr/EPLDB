@@ -11,13 +11,16 @@
 
 void createChild(int p1[],int p2[],int c1[],int c2[]){
     srand(time(NULL));
+    int index=cutpoint2-cutpoint1+1;
     int i=0;
-    int ctemp1[cutpoint2-cutpoint1+1];
-    int ctemp2[cutpoint2-cutpoint1+1];
+    int ctemp1[index];
+    int ctemp2[index];
     int flag=0;
+    int num;
 
-    int randtemp1[cutpoint2-cutpoint1+1];
-    int randtemp2[cutpoint2-cutpoint1+1];
+
+    int randtemp1[index];
+    int randtemp2[index];
 
     for(i=cutpoint1+1;i<cutpoint2+1;i++){
         c1[i]=p2[i];
@@ -34,17 +37,26 @@ void createChild(int p1[],int p2[],int c1[],int c2[]){
         ctemp1[i]=p1[i];
         ctemp2[i]=p2[i];
     }
+    for(i=0;i<index;i++){
+        randtemp1[i]=-1;
+        randtemp2[i]=-1;
+    }
 
-    for(i=0;i<(cutpoint2-cutpoint1+1);i++){
 
 
         while(1){
 
-            randtemp1[i]= rand()%(cutpoint2-cutpoint1+1);
-            flag=0;
+            for(i=0;i<index;i++){
+                num=rand()%index;
+                if(randtemp1[i]==num){
+                    
+                }
+               
+                
+            }
 
         }
-    }
+   
 
 
     
