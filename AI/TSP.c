@@ -12,50 +12,129 @@
 void createChild(int p1[],int p2[],int c1[],int c2[]){
     srand(time(NULL));
     int index=cutpoint2-cutpoint1+1;
-    int i=0;
+    int i,k,j=0;
     int ctemp1[index];
     int ctemp2[index];
     int flag=0;
     int num;
-
-
     int randtemp1[index];
     int randtemp2[index];
+    
+
+    for(i=0;i<index;i++){
+        ctemp1[i]=0;
+        ctemp2[i]=0;
+    }
 
     for(i=cutpoint1+1;i<cutpoint2+1;i++){
-        c1[i]=p2[i];
-        c2[i]=p1[i];
+        c1[i]=p1[i];
+        c2[i]=p2[i];
     }
-    for(i=0;i<cutpoint1;i++){
+    for(i=0;i<=cutpoint1;i++){
        ctemp1[i]=p1[i];
        ctemp2[i]=p2[i];
-
-        
     }
 
-    for(i=cutpoint2+1;i<numberOfCity;i++){
-        ctemp1[i]=p1[i];
-        ctemp2[i]=p2[i];
+    for(i=cutpoint2+1,k=cutpoint1+1;i<numberOfCity&&k<index;i++,k++){
+        ctemp1[k]=p1[i];
+        ctemp2[k]=p2[i];
     }
     for(i=0;i<index;i++){
         randtemp1[i]=-1;
         randtemp2[i]=-1;
     }
 
-
-
+    for(i=0;i<index;i++){
         while(1){
-
-            for(i=0;i<index;i++){
-                num=rand()%index;
-                if(randtemp1[i]==num){
-                    
+            randtemp1[i]=rand()%index;
+            flag=0;
+            for(k=0;k<i;k++){
+                if(randtemp1[i]==randtemp1[k]){
+                    flag=1;
+                    break;
                 }
-               
-                
+                    
+
+            }
+            if(!flag){
+                break;
             }
 
         }
+    }
+
+    for(i=0;i<index;i++){
+        while(1){
+            randtemp2[i]=rand()%index;
+            flag=0;
+            for(k=0;k<i;k++){
+                if(randtemp2[i]==randtemp2[k]){
+                    flag=1;
+                    break;
+                }
+                    
+
+            }
+            if(!flag){
+                break;
+            }
+
+        }
+    }
+
+
+    for(i=0;i<numberOfCity;i++){
+        printf(" %d ",c1[i]);
+    }
+
+    printf("\n");
+    for(i=0;i<numberOfCity;i++){
+        printf(" %d ",c2[i]);
+    }
+
+    printf("\n\n");
+    for(i=0;i<=cutpoint1;i++){
+        c1[i]=ctemp2[randtemp1[i]];
+        c2[i]=ctemp1[randtemp2[i]];
+    }
+
+    for(i=cutpoint2+1,k=0;i<numberOfCity && k<index;i++,k++){
+        c1[i]=ctemp2[randtemp1[k]];
+        c2[i]=ctemp1[randtemp2[k]];
+    }
+
+  /*  
+    for(i=0;i<numberOfCity;i++){
+        for(j=i+1;j<numberOfCity;j++){
+            if(c1[i]==c1[j]){
+                c1[j]=0;
+            }
+        }
+    }
+
+    for(i=0;i<numberOfCity;i++){
+        for(j=i+1;j<numberOfCity;j++){
+            if(c2[i]==c2[j]){
+                c2[j]=0;
+            }
+            
+        }
+    }
+*/
+    for(i=0;i<numberOfCity;i++){
+        printf(" %d ",c1[i]);
+    }
+
+    printf("\n");
+    for(i=0;i<numberOfCity;i++){
+        printf(" %d ",c2[i]);
+    }
+
+
+
+       
+
+        
    
 
 
@@ -179,13 +258,11 @@ int main(){
 
     printf("\n");
 
-
-    while(s<tNUM){
-
+    createChild(p1,p2,c1,c2);
 
 
 
-    }
+
 
 
 
