@@ -40,6 +40,16 @@ void createChild(int p1[],int p2[],int c1[],int c2[]){
         ctemp2[k]=p2[i];
     }
     for(i=0;i<index;i++){
+        printf(" %d ",ctemp1[i]);
+    }
+
+    printf("\n");
+    for(i=0;i<index;i++){
+        printf(" %d ",ctemp2[i]);
+    }
+
+    printf("\n\n");
+    for(i=0;i<index;i++){
         randtemp1[i]=-1;
         randtemp2[i]=-1;
     }
