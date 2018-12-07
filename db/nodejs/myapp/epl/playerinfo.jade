@@ -2,11 +2,11 @@
 doctype html
 html
     head
+     meta(charset="utf-8")
     title
-     =name_kr
-        meta(charset="utf-8")
+     =playerinfo[0].name_kr
     a(href='/team')
-        img(width="150px" height="150px" src="/logo.png") 
+        img(width="100px" height="100px" src="/logo.png") 
             
          
     script(type='text/javascript' src="http://code.jquery.com/jquery-1.10.2.js")
@@ -17,16 +17,13 @@ html
                     =sess.nickname
                     =space
                     님 안녕하세요!
-                    p
+                    br
                     좋아하는 팀:
                     =sess.favteam_no
-                    p    
-
-                
+                    br    
                     좋아하는 선수:
                     =sess.favplayer_no
-                
-                    p
+                    br
                     댓글 수:
                     =sess.desc_no
                     br

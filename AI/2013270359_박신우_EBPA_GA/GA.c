@@ -294,14 +294,11 @@ int main(){
         printf("p2:[");
         for(i=0;i<numberOfCity;i++){
             printf(" %d ",p2[i]);
-
-
         }
         printf("]\n");
 
         printf("cost:%d\n",cost(p2));
     }else{
-
         printf("p1:[");
         for(i=0;i<numberOfCity;i++){
             printf(" %d ",p1[i]);

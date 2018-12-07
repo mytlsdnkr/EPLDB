@@ -2,32 +2,28 @@ doctype html
 html
     head
         meta(charset="utf-8")
-
+        title
+            팀 정보
     script(type='text/javascript' src="http://code.jquery.com/jquery-1.10.2.js")
     table(style="width:10%; border:1px solid #444444; float:right; ")
         tr
             td
               font(style="font-size:0.5em")
-                =sess.nickname
-                =space
-                님안녕하세요!
-                
-                p
-                
-                좋아하는팀:
-                
-                =sess.favteam_no
-                p
-                좋아하는선수:
-                
-                =sess.favplayer_no
-                p
-                댓글수
-               
-                =sess.desc_no
-                p
-                form(action='/logout') 
-                    input(type='submit' id='logout' value='LOGOUT' style="height:30px; width:70px;")
+               = sess.nickname
+               = space
+               님안녕하세요!
+               br
+               좋아하는팀:
+               = sess.favteam_no
+               br
+               좋아하는선수:
+               = sess.favplayer_no
+               br
+               댓글수:
+               = sess.desc_no
+               br
+               form(action='/logout') 
+                   input(type='submit' id='logout' value='LOGOUT' style="height:30px; width:70px;")
                 
 
     
