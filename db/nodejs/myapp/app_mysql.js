@@ -290,12 +290,12 @@ app.post('/:team_no/player/:id',function(req,res){
         connection.query(sql,[req.params.id,sess.user_no,description,sess.nickname],function(err,rows,fields){
             if(!err){
                 console.log(sess.nickname+"님이 댓글을 달았습니다.");
-                var sql1='update user set desc_no=desc_no_1 where user_no=?';
+                var sql1='update user set desc_no=desc_no+1 where user_no=?';
                     connection.query(sql1,[sess.user_no],function(err1,rows1,fields){
                         if(err1){
                             console.log(err);
                         }else{
-                            res.redirect('/'+team_no+'/player/'+req.params.id);
+                            res.redirect('/'+req.params.team_no+'/player/'+req.params.id);
                             sess=req.session;
                             sess.desc_no++;
                             console.log(sess.nickname+"님의 댓글 개수가 업데이트 되었습니다.");
@@ -319,7 +319,7 @@ app.post('/:team_no/player/:id',function(req,res){
                             var sql2='update user set favplayer_no=favplayer_no+1 where user_no=?';
                             connection.query(sql2,[sess.user_no],function(err2,rows2,fields){
                         if(!err2){
-                            res.redirect('/'+team_no+'/player/'+req.params.id);
+                            res.redirect('/'+req.params.team_no+'/player/'+req.params.id);
                             sess=req.session;
                             console.log(sess.nickname+"님의 좋아요 개수가 업데이트 되었습니다.");
                         }else{
@@ -350,7 +350,6 @@ app.get('/:team_no/player/:id',function(req,res){
         sess=req.session;
     if(sess.nickname){
         var resultlen;
-
         var team_name_kr;
         var sql='select player_no from player where team_no=?';
         var sql1='select * from player where player_no=?';
@@ -373,8 +372,8 @@ app.get('/:team_no/player/:id',function(req,res){
                         team_name_kr=rows1[0].team_name_kr
                         connection.query(sql3,[id],function(err2,descinfo,fields){
                             if(!err2){
-                var sqlforfresh='select * from user where user_no=? '
-                connection.query(sqlforfresh,[sess.user_no],function(errforfresh,rowsforfresh,fieldsforfresh){
+                                var sqlforfresh='select * from user where user_no=? '
+                                connection.query(sqlforfresh,[sess.user_no],function(errforfresh,rowsforfresh,fieldsforfresh){
                     if(!errforfresh){
                         sess=req.session;
                         sess.favteam_no=rowsforfresh[0].favteam_no;
