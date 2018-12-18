@@ -8,6 +8,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <dirent.h>
+#include <wait.h>
 
 
 //#############################################################################
@@ -35,7 +36,6 @@ int main(int argc, char **argv)
 {
 	int i;
     int stat_val;
-    int exit_code;
     pid_t child_pid;
 	if (argc < 3)
 	{
@@ -56,18 +56,18 @@ int main(int argc, char **argv)
     for(i=0;i<argc-2;i++){
         pid=fork();
         if(pid>0){
-            child_pid=waitpid(pid,&stat_val,0);
-            printf("Child has finished:PID=%d exitedcode:%d\n",child_pid,WEXITSTATUS(child_pid));
         }
         if(pid==0){
 
-            execl("/bin/find",argv[1],"-name",argv[i+2],(char *)0);
+            execl("find",argv[1],"-name",argv[i+2],(char *)0);
         }
     }
    
+            child_pid=wait(&stat_val);
+            printf("Child has finished:PID=%d exitedcode:%d\n",child_pid,WEXITSTATUS(stat_val));
 
 	printf("All child processes finished successfully.... \n");
-    exit(exit_code);
+    exit(0);
 
                 
 

@@ -103,7 +103,25 @@ void *thread_function(void *arg)
 
 	for(int i=0; i<MAX_LOOP; i++)
 	{
+        sem_wait(&g_sem_list[id]);
 		print_int_list(id, max_num);
+
+        if(g_flag==1){
+            sem_post(&g_sem_list[id-1]);
+        }else{
+            sem_post(&g_sem_list[id+1]);
+        }
+
+        if(g_flag==1 && (id-1)%5==0){
+            g_flag=0;
+            sem_wait(&g_sem_list[id]);
+            sem_post(&g_sem_list[id-1]);
+        }else if(g_flag==0 && (id+1)%5==0){
+            g_flag=1;
+            sem_post(&g_sem_list[id]);
+        }
+
+
 
 
 	}
@@ -137,6 +155,7 @@ int main(int argc, char **argv)
 			
 	// ...
 
+    sem_post(&g_sem_list[0]);
 	int res, i;
     pthread_t thread_id[MAX_THREAD];
 	int thread_arg[MAX_THREAD];

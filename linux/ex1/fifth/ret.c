@@ -21,8 +21,9 @@ void system_using_unnamed_pipe()
 {
 
     int fd;
-    int file_pipes1[2], file_pipes2[2];
+    int file_pipes1[2];
     pid_t fork_result;
+        
 
     if (pipe(file_pipes1) != 0)
 	{
@@ -30,17 +31,29 @@ void system_using_unnamed_pipe()
 		exit(EXIT_FAILURE);
 	}
 
-    if (pipe(file_pipes2) != 0)
-	{
-		fprintf(stderr, "pipe failure");
-		exit(EXIT_FAILURE);
-	}
-			
-	// start of your code .........................
+    fd=open("b.txt",O_WRONLY|O_CREAT,0777);
+        fork_result=fork();
+        if(fork_result==0){
+            dup2(file_pipes1[1],1);
+            close(file_pipes1[1]);
+            execlp("cat","cat","ret.c",(char *)0);
+        
+        }
+
+        
+        dup2(file_pipes1[0],0);
+        close(file_pipes1[0]);
+        dup2(fd,1);
+        close(file_pipes1[1]);
+        execlp("wc","wc",(char *)0);
+
+        close(fd);
+
+        
 
 
 
-	// end of your code ...........................
+
 }
 
 
@@ -49,9 +62,9 @@ void system_using_unnamed_pipe()
 int main(int argc, char **argv)
 {
 
-	system("ls -l /etc | head | wc");
+//	system("cat < ret.c | wc > a.txt ");
 
-	printf("-----------------------------------\n");
+//	printf("-----------------------------------\n");
 
 	// implement "ls -l /etc | head | wc" using pipe()
 	system_using_unnamed_pipe();

@@ -1,6 +1,6 @@
 CC = gcc 
 CFLAGS=-D_REENTRANT -std=gnu99
-LDFLAGS=-lpthread
+LDFLAGS=-pthread
 
 all: ret
 
