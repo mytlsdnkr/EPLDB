@@ -9,7 +9,7 @@ var MySQLStore = require('express-mysql-session')(session);
 var connection = mysql.createConnection({
     host : 'localhost',
     user : 'park',
-    password : 'cjswo9488',
+    password : '',
     database : 'epldb',
     port : 3306
 
